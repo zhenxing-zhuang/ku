@@ -1,0 +1,55 @@
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void solution(int n, int* arr)
+{
+    int t = 0;
+    int* d=NULL;
+    int* e=NULL;
+    int i = 0;
+    int u = n;
+    int* arr2;
+    arr2 = (int*)malloc(n * sizeof(int));
+    for (i;i<u;i++)
+    {
+        e = arr + i;
+        if ((*e) % 2 == 0)
+        {
+            d = arr2 + n / 2;
+            *d = *e;
+            n += 2;
+            d = NULL;
+        }
+        else
+        {
+            d = arr2 + t;
+            *d= *e;
+            t++;
+            d = NULL;
+        }
+    }
+    int o = 0;
+    for (o; o < u; o++)
+    {
+        d = arr2 + o;
+        printf(" %d", *d);
+        d = NULL;
+    }
+}
+
+int main()                                                 //输入“n“个无序整数并对其排序//Enter and sort "n" unordered integers
+{
+    int n;
+    scanf_s("%d", &n);
+    int* arr;
+    arr = (int*)malloc(n * sizeof(int));
+    for (int i = 0; i < n; i++)
+    {
+        scanf_s("%d",&arr[i]);
+    }
+
+    solution(n, arr);
+    return 0;
+}
